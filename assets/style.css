@@ -1,0 +1,14 @@
+header {
+    padding: 15px;
+    color: antiquewhite;
+    text-align: center;
+    background-image: linear-gradient(to left, #06065a, #0000ff);
+}
+
+/* #searchCityName, #cityWeather {
+    padding: 10px;
+} */
+
+main {
+    padding-top: 25px;
+}
