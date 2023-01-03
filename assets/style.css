@@ -26,10 +26,11 @@ main {
     font-weight: bold;
 }
 
-.cardgap {
-    border: 6px solid transparent;
-    background-clip: padding-box; 
+#cardStyle {
+    margin-top: 15px;
+    padding: 10px;
     background-color: rgb(6, 33, 56);
     color: antiquewhite;
 }
+
 

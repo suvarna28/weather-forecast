@@ -49,13 +49,13 @@ function fivedayweather(lat,lon){
                 var timeH = timeHMS.split(":")[0];
                 if((parseInt(currentHour) >= parseInt(timeH)) && (parseInt(currentHour) < parseInt(timeH)+3)){
                     var iconidVal = data["list"][i]["weather"][0]["icon"];
-                    console.log("Temp : " + data["list"][i]["main"]["temp"]);
+                    console.log("Temp : " + data["list"][i]["main"]["temp_kf"]);
                     perDay = {
                         date: data["list"][i]["dt_txt"].split(" ")[0],
                         icon: `http://openweathermap.org/img/w/${iconidVal}.png`,
-                        temp: data["list"][i]["main"]["temp"],
-                        wind: data["list"][i]["wind"]["speed"],
-                        humidity: data["list"][i]["main"]["humidity"]
+                        temp: data["list"][i]["main"]["temp_kf"] + "\u00B0" + "F",
+                        wind: data["list"][i]["wind"]["speed"] + " MPH",
+                        humidity: data["list"][i]["main"]["humidity"] + " %"
                     }
                     fiveDayWeatherForecast.push(perDay);
                 }
@@ -69,11 +69,11 @@ function fivedayweather(lat,lon){
 
 function displayFiveDayWeather(){
     for(var i = 0; i < fiveDayWeatherForecast.length; i++){
-       eachFutureDayForecast.append('<div class="col cardgap"><p>'+fiveDayWeatherForecast[i].date+
-       '</p><img src='+fiveDayWeatherForecast[i].icon+
-       '><p>'+fiveDayWeatherForecast[i].temp+
+       eachFutureDayForecast.append('<div class="col-sm col-6"><div class="card" id="cardStyle"><p>'+fiveDayWeatherForecast[i].date+
+       '</p><p><img src='+fiveDayWeatherForecast[i].icon+
+       '></p><p>'+fiveDayWeatherForecast[i].temp+
        '</p><p>'+fiveDayWeatherForecast[i].wind+
-       '</p><p>'+fiveDayWeatherForecast[i].humidity+'</p></div>');
+       '</p><p>'+fiveDayWeatherForecast[i].humidity+'</p></div></div>');
     }
 }
 
