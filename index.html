@@ -13,33 +13,44 @@
         <h3>Weather Forecast</h4>
     </header>
 
-    <main class="container">
-        <section class="row">
-            <div id="searchCityName" class="col-3">
-                <label for="city">Search For a City:</label>
-                <input type="text" id="city" name="city">
-                <br>
-                <br>
-                <button id="search">Search</button>
-            </div>
-            <div id="cityWeather" class="col-9">
-                <section class="row">
-                    <div class="card">
-                        <div class="card-body">
-                          <p class="card-text">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo accusantium dolor at, blanditiis rem
-                            quisquam ipsam ipsum. Magnam ut quibusdam facilis consequatur veritatis, ullam molestiae, inventore
-                            neque,
-                            quas obcaecati laborum?
-                          </p>
+    <main>
+        <div class="container">
+            <section class="row">
+                <div id="searchcityname" class="col-3 col-md-3 col-sm-12">
+                    <label for="city">Search For a City:</label>
+                    <input type="text" id="city" name="city">
+                    <br>
+                    <br>
+                    <button id="search">Search</button>
+                </div>
+                <div id="cardshowhide" class="col-9 col-md-9 col-sm-12" style="display:none;">
+                    <section class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <div id="cityweather">
+                                    <p id="cityname"></p>
+                                    <p id="date"></p>
+                                    <p id="icon"><img id="weathericon" alt="icon-img"></p>
+                                </div>
+                                <p id="temp"></p>
+                                <p id="wind"></p>
+                                <p id="humidity"></p>
+                            </div>
                         </div>
-                      </div>
-                </section>
-            </div>
-          </section>
+                    </section>
+                    <div id="fivedayforecast">
+                        <h5>5-Day Forecast:</h5>
+                    </div>
+                    <div class="row" id="eachfuturedayforecast">
+    
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

@@ -5,10 +5,31 @@ header {
     background-image: linear-gradient(to left, #06065a, #0000ff);
 }
 
-/* #searchCityName, #cityWeather {
-    padding: 10px;
-} */
-
 main {
+    /* display: flex; */
     padding-top: 25px;
 }
+
+#cityweather {
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    gap: .5rem;
+}
+
+#cityname, #date {
+    margin-top: 5px;
+}
+
+#fivedayforecast {
+    margin: 15px;
+    font-weight: bold;
+}
+
+.cardgap {
+    border: 6px solid transparent;
+    background-clip: padding-box; 
+    background-color: rgb(6, 33, 56);
+    color: antiquewhite;
+}
+
