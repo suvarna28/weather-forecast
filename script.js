@@ -1,6 +1,6 @@
 var cityName = $('#city');
 var cardShowHide = $('#cardshowhide');
-var city = $('#cityname');
+var cityCurrent = $('#cityname');
 var searchCity = $('#searchcityname');
 var date = $('#date');
 var weatherIcon = $('#weathericon');
@@ -30,7 +30,7 @@ function currentWeather(cityname){
             cardShowHide.show();
             latitude = data["coord"]["lon"];
             longitude = data["coord"]["lat"];
-            city.text(cityname);
+            cityCurrent.text(cityname);
             date.text("(" + dayjs().format('DD/MM/YYYY') + ")");
             var iconid = data["weather"][0]["icon"];
             var iconlink = `http://openweathermap.org/img/w/${iconid}.png`;
