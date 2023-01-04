@@ -42,6 +42,8 @@ function currentWeather(cityname){
             if ($('#'+cityname).length == 0) {
                 searchCity.append("<button id="+cityname+">"+cityname+"</button>");
             }
+            cityNamesArray.push(cityname);
+            localStorage.setItem("cities", JSON.stringify(cityNamesArray));
         })
         .catch(function (err) {
             console.error(err);
@@ -94,7 +96,15 @@ function displayFiveDayWeather(fivadaydata){
     }       
 }
 
-
+document.addEventListener("click", function(e){  
+    var cities = [];
+    cities = JSON.parse(localStorage.getItem("cities"));
+    for(var i = 0; i < cities.length; i++){
+        if(e.target.id === cities[i]){
+            currentWeather(cities[i]);
+        }
+    } 
+})
 
 
 
