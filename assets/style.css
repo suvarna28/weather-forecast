@@ -6,8 +6,12 @@ header {
 }
 
 main {
-    /* display: flex; */
     padding-top: 25px;
+}
+
+#searchcityname {
+    display: flex;
+    flex-direction: column; 
 }
 
 #cityweather {
@@ -26,11 +30,22 @@ main {
     font-weight: bold;
 }
 
-#cardStyle {
+.stylingcard {
     margin-top: 15px;
     padding: 10px;
     background-color: rgb(6, 33, 56);
     color: antiquewhite;
 }
 
+#search {
+    background-color: #06065a;
+    border-radius: 5px;
+    color: white;
+}
+
+button {
+    margin-top: 5px;
+    background-color: gray;
+    border-radius: 5px;
+}
 
