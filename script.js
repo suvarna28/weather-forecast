@@ -13,11 +13,14 @@ var perDay = new Object();
 var eachFutureDayForecast = $('#eachfuturedayforecast');
 var cityNamesArray = [];
 
+
+/* Search button click event */
 $('#search').click(function (e) {
     e.preventDefault();
     currentWeather(cityName.val());
 });
 
+/* Function to get current day's weather for the entered city name */
 function currentWeather(cityname){
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=c75448beb04f6b5c8390f36f01f5e846&units=imperial`)
         .then(function (response) {
@@ -50,6 +53,7 @@ function currentWeather(cityname){
         });
 }
 
+/* Function to get current city's 5 day weather forecast data */
 function fivedayweather(lat,lon){
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c75448beb04f6b5c8390f36f01f5e846&units=imperial`)
         .then(function (response) {
@@ -83,6 +87,7 @@ function fivedayweather(lat,lon){
         });
 }
 
+/* Function that displays the data for 5 day weather forecast */
 function displayFiveDayWeather(fivadaydata){
     eachFutureDayForecast.empty();
 
@@ -95,6 +100,7 @@ function displayFiveDayWeather(fivadaydata){
     }       
 }
 
+/* Button click events for the search history cities */
 document.addEventListener("click", function(e){  
     var cities = [];
     cities = JSON.parse(localStorage.getItem("cities"));

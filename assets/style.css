@@ -1,3 +1,4 @@
+/* Styling for main header */
 header {
     padding: 15px;
     color: antiquewhite;
@@ -5,19 +6,23 @@ header {
     background-image: linear-gradient(to left, #06065a, #0000ff);
 }
 
+/* Padding for main section */
 main {
     padding-top: 5px;
 }
 
+/* Margin for the complete weather display */
 #weatherdisplay {
     margin: 20px;
 }
 
+/* Styling for the entire div so that the content fits the div */
 #searchcityname {
     display: flex;
     flex-direction: column; 
 }
 
+/* Styling for the current city name, date and icon */
 #cityweather {
     font-size: x-large;
     font-weight: bold;
@@ -25,15 +30,18 @@ main {
     gap: .5rem;
 }
 
+/* Styling to correctly align city name, date with respect to icon */
 #cityname, #date {
     margin-top: 5px;
 }
 
+/* Styling for the heading of 5 day forecast */
 #fivedayforecast {
     margin-top: 5px; 
     font-weight: bold;
 }
 
+/* Card styling that displays 5 day weather data for each day */
 .stylingcard {
     margin-top: 15px;
     padding: 10px;
@@ -41,12 +49,14 @@ main {
     color: antiquewhite;
 }
 
+/* Search button styling */
 #search {
     background-color: #06065a;
     border-radius: 5px;
     color: white;
 }
 
+/* Search history city names button styling */
 button {
     margin-top: 5px;
     margin-bottom: 10px;
