@@ -91,9 +91,9 @@ function displayFiveDayWeather(fivadaydata){
     for(var i = 0; i < fivadaydata.length; i++){
         eachFutureDayForecast.append('<div class="col-sm col-6"><div class="card stylingcard"><p>'+fivadaydata[i].date+
         '</p><p><img src='+fivadaydata[i].icon+
-        '></p><p>'+fivadaydata[i].temp+
-        '</p><p>'+fivadaydata[i].wind+
-        '</p><p>'+fivadaydata[i].humidity+'</p></div></div>');
+        '></p><p>Temp: '+fivadaydata[i].temp+
+        '</p><p>Wind: '+fivadaydata[i].wind+
+        '</p><p>Humidity: '+fivadaydata[i].humidity+'</p></div></div>');
     }       
 }
 
@@ -102,7 +102,6 @@ document.addEventListener("click", function(e){
     cities = JSON.parse(localStorage.getItem("cities"));
     for(var i = 0; i < cities.length; i++){
         if(e.target.id === cities[i]){
-            // console.log("city : " + cities[i]);
             currentWeather(cities[i]);
         }
     } 
