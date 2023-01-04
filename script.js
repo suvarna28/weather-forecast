@@ -28,8 +28,8 @@ function currentWeather(cityname){
         })
         .then(function (data) {
             cardShowHide.show();
-            latitude = data["coord"]["lon"];
-            longitude = data["coord"]["lat"];
+            latitude = data["coord"]["lat"];
+            longitude = data["coord"]["lon"];
             cityCurrent.text(cityname);
             date.text("(" + dayjs().format('DD/MM/YYYY') + ")");
             var iconid = data["weather"][0]["icon"];
@@ -64,13 +64,11 @@ function fivedayweather(lat,lon){
                 if((parseInt(currentHour) >= parseInt(timeH)) && (parseInt(currentHour) < parseInt(timeH)+3)){
                     var iconidVal = data["list"][i]["weather"][0]["icon"];
                     var dateformatted = data["list"][i]["dt_txt"].split(" ")[0];
-                    var temperature = data["list"][i]["main"]["temp"];
-                    temperature = temperature + "\u00B0" + "F";
                     dateformatted = dateformatted.split("-").reverse().join("/");
                     perDay = {
                         date: dateformatted,
                         icon: `http://openweathermap.org/img/w/${iconidVal}.png`,
-                        temp: temperature,
+                        temp: data["list"][i]["main"]["temp"]+ "\u00B0" + "F",
                         wind: data["list"][i]["wind"]["speed"] + " MPH",
                         humidity: data["list"][i]["main"]["humidity"] + " %"
                     }

@@ -28,6 +28,7 @@ https://suvarna28.github.io/weather-forecast/
 
 ## Credits
 
+* @leeclaire156 for identifying the error in my code while displaying temperature value for 5-Day forecast data. 
 * Stackoverflow Website for the syntax I needed. 
 * W3Schools Website for the syntax I needed. 
 
