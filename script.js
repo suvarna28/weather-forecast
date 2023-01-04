@@ -30,7 +30,7 @@ function currentWeather(cityname){
             cardShowHide.show();
             latitude = data["coord"]["lon"];
             longitude = data["coord"]["lat"];
-            city.text(cityName.val());
+            city.text(cityname);
             date.text("(" + dayjs().format('DD/MM/YYYY') + ")");
             var iconid = data["weather"][0]["icon"];
             var iconlink = `http://openweathermap.org/img/w/${iconid}.png`;
@@ -51,7 +51,7 @@ function currentWeather(cityname){
 }
 
 function fivedayweather(lat,lon){
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c75448beb04f6b5c8390f36f01f5e846`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=c75448beb04f6b5c8390f36f01f5e846&units=imperial`)
         .then(function (response) {
             return response.json();
         })
@@ -63,13 +63,14 @@ function fivedayweather(lat,lon){
                 var timeH = timeHMS.split(":")[0];
                 if((parseInt(currentHour) >= parseInt(timeH)) && (parseInt(currentHour) < parseInt(timeH)+3)){
                     var iconidVal = data["list"][i]["weather"][0]["icon"];
-                    console.log("Temp : " + data["list"][i]["main"]["temp_kf"]);
                     var dateformatted = data["list"][i]["dt_txt"].split(" ")[0];
-                    dateformatted = dateformatted.split("-").join("/");
+                    var temperature = data["list"][i]["main"]["temp"];
+                    temperature = temperature + "\u00B0" + "F";
+                    dateformatted = dateformatted.split("-").reverse().join("/");
                     perDay = {
                         date: dateformatted,
                         icon: `http://openweathermap.org/img/w/${iconidVal}.png`,
-                        temp: data["list"][i]["main"]["temp_kf"] + "\u00B0" + "F",
+                        temp: temperature,
                         wind: data["list"][i]["wind"]["speed"] + " MPH",
                         humidity: data["list"][i]["main"]["humidity"] + " %"
                     }
@@ -101,6 +102,7 @@ document.addEventListener("click", function(e){
     cities = JSON.parse(localStorage.getItem("cities"));
     for(var i = 0; i < cities.length; i++){
         if(e.target.id === cities[i]){
+            // console.log("city : " + cities[i]);
             currentWeather(cities[i]);
         }
     } 
