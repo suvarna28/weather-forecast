@@ -33,7 +33,9 @@ function currentWeather(cityname){
             cardShowHide.show();
             latitude = data["coord"]["lat"];
             longitude = data["coord"]["lon"];
-            cityCurrent.text(cityname);
+            var citynamelower = cityname;
+            var citynameupper = cityname[0].toUpperCase() + cityname.slice(1);
+            cityCurrent.text(citynameupper);
             date.text("(" + dayjs().format('DD/MM/YYYY') + ")");
             var iconid = data["weather"][0]["icon"];
             var iconlink = `http://openweathermap.org/img/w/${iconid}.png`;
@@ -42,10 +44,10 @@ function currentWeather(cityname){
             wind.text("Wind: " + data["wind"]["speed"] + " MPH");
             humidity.text("Humidity: " + data["main"]["humidity"] + " %");  
             fivedayweather(latitude, longitude);
-            if ($('#'+cityname).length == 0) {
-                searchCity.append("<button id="+cityname+">"+cityname+"</button>");
+            if ($('#'+citynamelower).length == 0) {
+                searchCity.append("<button id="+citynamelower+">"+citynameupper+"</button>");
             }
-            cityNamesArray.push(cityname);
+            cityNamesArray.push(citynamelower);
             localStorage.setItem("cities", JSON.stringify(cityNamesArray));
         })
         .catch(function (err) {
